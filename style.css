@@ -1,0 +1,111 @@
+/* Cài đặt nền video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Hiệu ứng đánh máy */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    50% { border-color: transparent; }
+}
+
+/* Căn giữa văn bản */
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Dòng chúc chính */
+.main-text {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black;
+    width: 0;
+    display: inline-block;
+    animation: typing 4s steps(25, end) forwards, blinkCursor 0.75s step-end infinite;
+}
+
+/* Dòng chúc phụ */
+.sub-text {
+    color: white;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black;
+    width: 0;
+    display: inline-block;
+    animation: typing 4s steps(25, end) forwards, blinkCursor 0.75s step-end infinite;
+    animation-delay: 4.5s; /* Xuất hiện sau dòng chúc chính 0.5s */
+}
+
+/* Thiết lập thông báo xoay màn hình */
+#rotate-message {
+    display: none;  /* Mặc định ẩn đi */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Ảnh xoay điện thoại */
+#rotate-message img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Hiển thị khi màn hình xoay ngang */
+@media screen and (orientation: landscape) {
+    #rotate-message {
+        display: flex;
+    }
+}
+
+#controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+#controls button {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 10px;
+    border-radius: 4px;
+}
+
+#controls button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+}
